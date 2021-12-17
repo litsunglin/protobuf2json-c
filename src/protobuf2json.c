@@ -201,7 +201,8 @@ static int protobuf2json_process_message(
     const void *protobuf_value = ((const char *)protobuf_message) + field_descriptor->offset;
     const void *protobuf_value_quantifier = ((const char *)protobuf_message) + field_descriptor->quantifier_offset;
 
-    if (field_descriptor->label == PROTOBUF_C_LABEL_REQUIRED) {
+    if (field_descriptor->label == PROTOBUF_C_LABEL_REQUIRED ||
+        field_descriptor->label == PROTOBUF_C_LABEL_NONE) {
       json_value = NULL;
 
       int result = protobuf2json_process_field(field_descriptor, protobuf_value, &json_value, error_string, error_size);
