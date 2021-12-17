@@ -748,7 +748,8 @@ static int json2protobuf_process_message(
       *(uint32_t*)protobuf_value_quantifier = field_descriptor->id;
     }
 
-    if (field_descriptor->label == PROTOBUF_C_LABEL_REQUIRED) {
+    if (field_descriptor->label == PROTOBUF_C_LABEL_REQUIRED ||
+       field_descriptor->label == PROTOBUF_C_LABEL_NONE) {
       result = json2protobuf_process_field(field_descriptor, json_object_value, protobuf_value, error_string, error_size);
       if (result) {
         SAFE_FREE_BITMAP_AND_MESSAGE;
