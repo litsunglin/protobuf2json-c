@@ -18,8 +18,8 @@ AC_DEFUN([AX_PROTOBUF_C],
     AC_MSG_CHECKING([for protobuf-c headers])
 
     protobuf_c_path=""
-    for path in "$with_protobuf_c" /usr/local /usr /opt/local /opt ; do
-      if test -r "$path/include/google/protobuf-c/protobuf-c.h" -a "$path/bin/protoc-c" ; then
+    for path in "$with_protobuf_c" /usr/local /usr /opt/local /opt $VCPKG_ROOT/installed/x64-linux; do
+      if test -r "$path/include/protobuf-c/protobuf-c.h" -a "$path/bin/protoc-c" ; then
         protobuf_c_path=$path
         break
       fi
@@ -61,7 +61,7 @@ AC_DEFUN([AX_LIBJANSSON],
     AC_MSG_CHECKING([for libjansson headers])
 
     libjansson_path=""
-    for dir in "$with_libjansson" /usr/local /usr /opt/local /opt ; do
+    for dir in "$with_libjansson" /usr/local /usr /opt/local /opt $VCPKG_ROOT/installed/x64-linux ; do
       if test -r "$dir/include/jansson.h" ; then
         libjansson_path="$dir"
         break

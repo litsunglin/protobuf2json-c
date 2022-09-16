@@ -9,7 +9,7 @@
 #ifndef PROTOBUF2JSON_H
 #define PROTOBUF2JSON_H 1
 
-#include <google/protobuf-c/protobuf-c.h>
+#include <protobuf-c/protobuf-c.h>
 #include <jansson.h>
 
 /* Common errors */
